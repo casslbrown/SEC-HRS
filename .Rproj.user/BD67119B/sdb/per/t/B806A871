@@ -1,0 +1,17 @@
+{
+    "contents" : "\n# remove all elements for a clean start\nrm(list=ls(all=TRUE))\ncat(\"\\014\")\nlibrary(foreign)\nlibrary(plyr)\nlibrary(dplyr)\n# Importing raw RAND files version A.\npathDir <- getwd()\npathFolder <- file.path(pathDir,\"Data/Extract/RAND_vA\")\npathFolderSPSS <- file.path(pathFolder,\"spss\")\n\npathFile1 <- file.path(pathFolderSPSS, \"h04f1a.sav\")\npathFile1RDS <- file.path(pathFolder, \"h04f1a.Rds\")\n\npathFile2 <- file.path(pathFolderSPSS, \"h06f2b.sav\")\npathFile2RDS <- file.path(pathFolder, \"h06f2b.Rds\")\n\npathFile3 <- file.path(pathFolderSPSS, \"h08f2a.sav\")\npathFile3RDS <- file.path(pathFolder, \"h08f2a.Rds\")\n\npathFile4 <- file.path(pathFolderSPSS, \"h10f4a.sav\")\npathFile4RDS <- file.path(pathFolder, \"h10f4a.Rds\")\n\npathFile5 <- file.path(pathFolderSPSS, \"h12e1a.sav\")\npathFile5RDS <- file.path(pathFolder, \"h12e1a.Rds\")\n\nrequire(foreign)\n#Next three lines are run the first time on machine\n #ds0_1 <- read.spss(file = pathFile1, use.value.labels=TRUE)\n #ds0_1 <- data.frame(ds0_1)\n #saveRDS(object = ds0_1, file=pathFile1RDS, compress=\"xz\")\n\n#Next three lines are run the first time on machine\n #ds0_2 <- read.spss(file=pathFile2, use.value.labels=TRUE)\n #ds0_2 <- data.frame(ds0_2)\n #saveRDS(object = ds0_2, file=pathFile2RDS, compress=\"xz\")\n\n\n#Next three lines are run the first time on machine\n #ds0_3 <- read.spss(file=pathFile3, use.value.labels=TRUE)\n #ds0_3 <- data.frame(ds0_3)\n #saveRDS(object = ds0_3, file=pathFile3RDS, compress=\"xz\")\n\n\n#Next three lines are run the first time on machine\n #ds0_4 <- read.spss(file = pathFile4, use.value.labels=TRUE)\n #ds0_4 <- data.frame(ds0_4)\n #saveRDS(object = ds0_4, file=pathFile4RDS, compress=\"xz\")\n\n#Next three lines are run the first time on machine\n #ds0_5 <- read.spss(file=pathFile5, use.value.labels=TRUE)\n #ds0_5 <- data.frame(ds0_5)\n #saveRDS(object = ds0_5, file=pathFile5RDS, compress=\"xz\")\n\n\nrequire(dplyr)\n\n# rename variables for 2004 wave subset\nds04full <- readRDS(pathFile1RDS)\nds04 <- ds04full[1:100,]\nsource(\"./Scripts/Data/rename2004.R\")\nds04 <- ds04[,keepvars04]\n\n\n# rename variables for 2006 wave subset\nds06full <- readRDS(pathFile2RDS)\nds06 <- ds06full[1:100,]\nsource(\"./Scripts/Data/rename2006.R\")\nds06 <- ds06[,keepvars06]\n\n\n# rename variables for 2008 wave subset\nds08full <- readRDS(pathFile3RDS)\nds08 <- ds08full[1:100,]\nsource(\"./Scripts/Data/rename2008.R\")\nds08 <- ds08[,keepvars08]\n\n\n# rename variables for 2012 wave subset\nds12full <- readRDS(pathFile5RDS)\nds12 <- ds12full[1:100,]\nsource(\"./Scripts/Data/rename2012.R\")\nds12 <- ds12[,keepvars12]\n\n\n\n",
+    "created" : 1449012372900.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3479128149",
+    "id" : "B806A871",
+    "lastKnownWriteTime" : 1441999574,
+    "path" : "~/GitHub/HRS/scripts/data/cassandra/Import_Rename.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

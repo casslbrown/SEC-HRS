@@ -1,0 +1,18 @@
+{
+    "contents" : "options(width=160)\nrm(list=ls())\ncat(\"\\f\")\n\n## @knitr setPaths\n\npathDir <- getwd() # establish home directory\npathFiles <- file.path(pathDir,\"data/extract/RAND/spss\")",
+    "created" : 1449011983387.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "1754404212",
+    "id" : "736C08E9",
+    "lastKnownWriteTime" : 7011605692497750387,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
